@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Price Predictor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1F2021;
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            margin-top: 5px;
+            padding: 5px;
+            width: 200px;
+        }
+
+        input,
+        button {
+            border-radius: 12px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 1em 2em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #diamond {
+            transition: transform 0.3s, fill 0.3s;
+
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Diamond Price Predictor</h1>
+
+
+
+    <div class="form">
+        <svg id="diamond" fill="#000000" height="200px" width="200px" viewBox="0 0 64 64">
+            <path id="diamond-path"
+                d="M63.6870499,18.5730648L48.7831497,4.278266c-0.1855011-0.1758003-0.4316025-0.4813001-0.6870003-0.4813001
+                    	H15.9037514c-0.2553005,0-0.5014,0.3054998-0.6870003,0.4813001l-14.9038,14.1908998
+                    	c-0.374,0.3535004-0.4184,0.9855995-0.1025,1.3917999c0.21,0.2703991,30.8237991,39.7256012,31.0517006,39.9812012
+                    	c0.1022987,0.1149979,0.2402992,0.2215996,0.3428001,0.266098c0.2763996,0.1206017,0.5077,0.1296997,0.7900982,0.0065002
+                    	c0.1025009-0.0444984,0.2404022-0.1348991,0.3428001-0.2499008c0.0151024-0.0168991,0.0377007-0.0224991,0.0517006-0.0404968
+                    	L63.789547,19.9121666C64.1054459,19.5058651,64.0610504,18.9265652,63.6870499,18.5730648z M15.6273508,6.4344659
+                    	l4.9945002,11.3625011H3.6061509L15.6273508,6.4344659z M24.0795517,17.7969666l7.9203987-11.2617006l7.9204979,11.2617006
+                    	H24.0795517z M40.7191467,19.7969666l-8.7191963,34.8769989l-8.719099-34.8769989H40.7191467z M33.9257507,5.7969656h12.5423012
+                    	l-4.8240013,10.9746008L33.9257507,5.7969656z M22.3559513,16.7715664L17.53195,5.7969656h12.5423012L22.3559513,16.7715664z
+                    	 M21.2191505,19.7969666l8.6596012,34.638401L2.975451,19.7969666H21.2191505z M42.7808495,19.7969666h18.2436981
+                    	l-26.9032974,34.638401L42.7808495,19.7969666z M43.3781471,17.7969666l4.9944992-11.3625011l12.0212021,11.3625011H43.3781471z" />
+        </svg>
+
+        <label for="carat">Carat</label>
+        <input type="text" name="carat" id="carat" placeholder="Carat">
+
+
+        <div style="display: flex; flex-direction: row; gap: 1em;">
+            <div style="display: flex; flex-direction: column;">
+                <label for="cut">Cut</label>
+                <select name="cut" id="cut">
+                    <option value="Ideal">Ideal</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Very Good">Very Good</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                </select>
+
+                <label for="colour">Colour</label>
+                <select name="colour" id="colour">
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="J">J</option>
+                </select>
+
+                <label for="clarity">Clarity</label>
+                <select name="clarity" id="clarity">
+                    <option value="IF">IF</option>
+                    <option value="VVS1">VVS1</option>
+                    <option value="VVS2">VVS2</option>
+                    <option value="VS1">VS1</option>
+                    <option value="VS2">VS2</option>
+                    <option value="SI1">SI1</option>
+                    <option value="SI2">SI2</option>
+                    <option value="SI3">SI3</option>
+                    <option value="I1">I1</option>
+                    <option value="I2">I2</option>
+                    <option value="I3">I3</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div style="display: flex; flex-direction: column;">
+                <label for="x">X</label>
+                <input type="number" name="x" id="x" placeholder="X">
+
+                <label for="y">Y</label>
+                <input type="number" name="y" id="y" placeholder="Y">
+
+                <label for="z">Z</label>
+                <input type="number" name="z" id="z" placeholder="Z">
+            </div>
+        </div>
+
+        <br>
+
+        <button type="submit" onclick="getPrice()">Predict</button>
+
+        <h3 id="price">Price: _______</h3>
+    </div>
+
+
+
+    <script>
+        const diamond = document.getElementById('diamond-path');
+
+        function getPrice() {
+            let carat = parseFloat(document.getElementById("carat").value) || 0;
+            let cut = document.getElementById("cut").value;
+            let colour = document.getElementById("colour").value;
+            let clarity = document.getElementById("clarity").value;
+            let x = parseFloat(document.getElementById("x").value) || 0;
+            let y = parseFloat(document.getElementById("y").value) || 0;
+            let z = parseFloat(document.getElementById("z").value) || 0;
+
+            let data = {
+                carat: carat,
+                cut: cut,
+                colour: colour,
+                clarity: clarity,
+                x: x,
+                y: y,
+                z: z
+            };
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    document.getElementById('price').innerText = `Price: $${data.price}`;
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function updateImage() {
+            let x = parseFloat(document.getElementById("x").value) / 100 || 1;
+            let y = parseFloat(document.getElementById("y").value) / 100 || 1;
+            let colour = document.getElementById("colour").value;
+
+            switch (colour) {
+                case 'D':
+                    colour = 'white';
+                    break;
+                case 'E':
+                    colour = '#DBDDD4';
+                    break;
+                case 'F':
+                    colour = '#D0D1C8';
+                    break;
+                case 'G':
+                    colour = '#D3D5BE';
+                    break;
+                case 'H':
+                    colour = '#D9DAC1';
+                    break;
+                case 'I':
+                    colour = '#D0CFBF';
+                    break;
+                case 'J':
+                    colour = '#A6A68A';
+                    break;
+            }
+
+            if (x > 1 || y > 1) {
+                diamond.style.animation = 'shake 1s';
+                setTimeout(() => {
+                    diamond.style.animation = '';
+                }, 500);
+            }
+
+            x = Math.min(x, 1);
+            y = Math.min(y, 1);
+
+            x = Math.max(x, 5 / 100);
+            y = Math.max(y, 5 / 100);
+
+            document.getElementById('diamond').setAttribute("transform", `scale(${x}, ${y})`);
+            diamond.setAttribute("fill", colour);
+        }
+        updateImage();
+
+        document.getElementById('x').addEventListener('input', updateImage);
+        document.getElementById('y').addEventListener('input', updateImage);
+        document.getElementById('colour').addEventListener('input', updateImage);
+    </script>
+
+</body>
+
+</html>
